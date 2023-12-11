@@ -3,6 +3,7 @@ import Link from "next/link";
 import localFont from "next/font/local";
 
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Poppins } from "next/font/google";
 
 const headingFont = localFont({
@@ -17,7 +18,12 @@ const textFont = Poppins({
 const MarketingPage = () => {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center">
+      <div
+        className={cn(
+          "flex flex-col items-center justify-center",
+          headingFont.className
+        )}
+      >
         <div className="mb-4 flex items-centerborder shadow-sm p-4 bg-amber-100 text-amber-700 rounded-full uppercase">
           <Medal className="h-6 w-6 mr-2" />
           No 1 Task Management
@@ -29,7 +35,12 @@ const MarketingPage = () => {
       <div className="text-3xl md:text-6xl bg-gradient-to-r from-fuchsia-600 to-pink-600 text-white px-4 p-2 rounded-md pb-4 w-fit">
         Work Forward.
       </div>
-      <div className="tex-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mb-6">
+      <div
+        className={cn(
+          "tex-sm md:text-xl text-neutral-400 mt-4 max-w-xs md:max-w-2xl text-center mb-6",
+          textFont.className
+        )}
+      >
         Collaborate, manage project, and reach new productivity. From high rises
         to the home office, the way your team works is unique - accomplish it
         all with Taskify.
