@@ -1,3 +1,8 @@
+"use client";
+
+import { useFormStatus } from "react-dom";
+import { Input } from "@/components/ui/input";
+
 interface IFormInputState {
   errors?: {
     title?: string[];
@@ -5,15 +10,17 @@ interface IFormInputState {
 }
 
 export const FormInput = ({ errors }: IFormInputState) => {
+  const { pending } = useFormStatus();
   return (
     <div>
-      <input
+      <Input
         type="text"
         id="title"
         name="title"
         required
         placeholder="Enter a board title"
-        className="border-black border p-1"
+        // className="border-black border p-1"
+        disabled={pending}
       />
       {errors?.title ? (
         <div>

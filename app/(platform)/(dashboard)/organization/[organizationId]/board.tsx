@@ -1,5 +1,6 @@
 import { deleteBoard } from "@/actions/delete-board";
 import { Button } from "@/components/ui/button";
+import { FormDeleteButton } from "./form-delete";
 
 interface BoardPage {
   title: string;
@@ -11,9 +12,7 @@ const Board = ({ title, id }: BoardPage) => {
   return (
     <form action={deleteBoardWithId} className="flex items-center gap-x-2">
       <p>Board Title : {title}</p>
-      <Button variant="destructive" size="sm" type="submit">
-        Delete
-      </Button>
+      <FormDeleteButton />
     </form>
   );
 };
