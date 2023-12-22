@@ -39,10 +39,11 @@ const BoardIdPage = async ({ params }: BoardIdPageProps) => {
 
   return (
     <div>
-      Board ID!
       <div className="p-4 h-full overflow-x-auto">
         <ListContainer boardId={params.boardId} data={lists} />
       </div>
     </div>
   );
 };
+
+export default BoardIdPage;
