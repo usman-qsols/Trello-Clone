@@ -10,6 +10,7 @@ import { createList } from "@/actions/create-list";
 import { updateList } from "@/actions/update-list";
 import { toast } from "sonner";
 import { Tienne } from "next/font/google";
+import { ListOptions } from "./list-options";
 
 interface ListHeaderProps {
   data: List;
@@ -98,6 +99,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
           {title}
         </div>
       )}
+      <ListOptions data={data} onAddCard={() => {}} />
     </div>
   );
 };
