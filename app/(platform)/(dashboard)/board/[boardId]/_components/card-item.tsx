@@ -1,6 +1,8 @@
 "use client";
 
 import { Card } from "@prisma/client";
+import { Draggable } from "@hello-pangea/dnd";
+import { Provider } from "@radix-ui/react-tooltip";
 
 interface CardItemProps {
   data: Card;
@@ -9,11 +11,18 @@ interface CardItemProps {
 
 export const CardItem = ({ data, index }: CardItemProps) => {
   return (
-    <div
-      role="button"
-      className="truncate border-2 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
-    >
-      {data.title}
-    </div>
+    <Draggable draggableId={data.id} index={index}>
+      {(provided) => (
+        <div
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+          role="button"
+          className="truncate border-2 border-transparent hover:border-black py-2 px-3 text-sm bg-white rounded-md shadow-sm"
+        >
+          {data.title}
+        </div>
+      )}
+    </Draggable>
   );
 };
